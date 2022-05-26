@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecero.component.css']
 })
 export class CabeceroComponent implements OnInit {
+ 
 
   constructor() { }
 
