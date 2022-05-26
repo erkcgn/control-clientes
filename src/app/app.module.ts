@@ -34,7 +34,12 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firestore, 'control-clientes'),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
