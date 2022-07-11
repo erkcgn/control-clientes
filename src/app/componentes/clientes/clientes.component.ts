@@ -10,6 +10,13 @@ import { ClienteServicio } from 'src/app/servicios/clientes.service';
 export class ClientesComponent implements OnInit {
 
   clientes!: Cliente[];
+  //propiedad cliente que asociamos en el form, con esto asignamos un nvo obj de tipo cliente
+  cliente: Cliente = {
+    nombre: '',
+    apellido: '',
+    email: '',
+    saldo: 0
+  };
 
   constructor(private clientesServicio: ClienteServicio) {}
 
