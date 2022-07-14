@@ -111,7 +111,7 @@
                         <input 
                             type="text" 
                             name="apellido" 
-                            class="form-control">
+                            class="form-control"
                             #apellido="ngModel"
                             [(ngModel)]="cliente.apellido" 
                             [ngClass]="{'is-invalid': apellido.errors && apellido.touched}"
