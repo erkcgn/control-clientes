@@ -51,6 +51,9 @@ export class ClientesComponent implements OnInit {
     }
     else{
       //Agregar el nuevo cliente
+      this.clientesServicio.agregarCliente(f.value);
+      // this.clienteForm.resetForm();
+      // this.cerrarModal();
     }
   }
 
