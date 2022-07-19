@@ -1,7 +1,9 @@
+import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { Observable } from "rxjs";
 import { Configuracion } from "../modelo/configuracion.model";
 
+@Injectable()
 export class ConfiguracionServicio{
     configuracionDoc!: AngularFirestoreDocument<Configuracion>;
     configuracion!: Observable<Configuracion>;
