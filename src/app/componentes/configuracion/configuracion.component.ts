@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Configuracion } from 'src/app/modelo/configuracion.model';
+import { ConfiguracionServicio } from 'src/app/servicios/configuracion.service';
 
 @Component({
   selector: 'app-configuracion',
@@ -11,14 +13,23 @@ export class ConfiguracionComponent implements OnInit {
   permitirRegistro = false;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private configuracionServicio: ConfiguracionServicio
   ) { }
 
-  ngOnInit(): void {
-
+  ngOnInit(){
+    //vamos a recuperar el valor de la variable permitir registro
+    this.configuracionServicio.getConfiguracion().subscribe(
+      (configuracion: Configuracion) => {
+        //ERROR: Type 'undefined' is not assignable to type 'boolean'.
+        //this.permitirRegistro = configuracion.permitirRegistro;
+      }
+    )
   }
   
   guardar(){
-    
+    let configuracion = {permitirRegistro: this.permitirRegistro};
+    this.configuracionServicio.modificarConfiguracion(configuracion);
+    this.router.navigate(['/']);
   }
 }
