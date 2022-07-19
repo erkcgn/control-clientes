@@ -18,9 +18,23 @@ export class CabeceroComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     //inicializamos nuestro login user
-    
+    this.loginService.getAuth().subscribe(auth => {
+      if(auth?.email){
+        this.isLoggedIn = true;
+        this.loggedInUser = auth.email;
+      }
+      else{
+        this.isLoggedIn = false;
+      }
+    });
+  }
+
+  logout(){
+    this.loginService.logout();
+    this.isLoggedIn = false;
+    this.router.navigate(['/login']);
   }
 
 }
