@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-
+import { map } from 'rxjs/operators';
 
 @Injectable() // decorador injectable ya que vamos a agregar otros servicios
 export class LoginService{
@@ -17,5 +17,11 @@ export class LoginService{
                 error => reject(error)
             )
         });
+    }
+
+    getAuth(){
+        return this.authService.authState.pipe(
+            map( auth => auth) // con este metodo nos va a regresar el uss que se ha autenticado a la bbdd
+        );
     }
 }
