@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   password!: string;
 
   constructor(private router: Router,
-              private flashMessages: FlashMessagesService
+              private flashMessages: FlashMessagesService,
+              private loginService: LoginService // recordar registrar nuevos servicios en app.module.ts
               ) { }
 
   ngOnInit(): void {
