@@ -24,4 +24,8 @@ export class LoginService{
             map( auth => auth) // con este metodo nos va a regresar el uss que se ha autenticado a la bbdd
         );
     }
+
+    logout(){
+        this.authService.signOut();
+    }
 }
