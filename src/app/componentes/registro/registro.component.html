@@ -28,7 +28,7 @@
                     <h4>Registro</h4>
                 </div>
                 <div class="card-body">
-                    <form (submit)="registro()">
+                    <form (submit)="registro()" class="d-grid gap-2">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" [(ngModel)]="email" required>
@@ -37,6 +37,7 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" [(ngModel)]="password" required>
                         </div>
+
                         <input type="submit" value="Registrarse" class="btn btn-primary btn-block">
                     </form>                   
                 </div>
