@@ -22,7 +22,7 @@ export class ConfiguracionComponent implements OnInit {
     this.configuracionServicio.getConfiguracion().subscribe(
       (configuracion: Configuracion) => {
         //ERROR: Type 'undefined' is not assignable to type 'boolean'.
-        //this.permitirRegistro = configuracion.permitirRegistro;
+        this.permitirRegistro = configuracion.permitirRegistro;
       }
     )
   }
