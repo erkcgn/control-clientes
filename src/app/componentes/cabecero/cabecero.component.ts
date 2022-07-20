@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfiguracionServicio } from 'src/app/servicios/configuracion.service';
 import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
@@ -11,11 +12,14 @@ export class CabeceroComponent implements OnInit {
  
   //nuestro usuario esta logueado?
   isLoggedIn!: boolean;
-  loggedInUser!: string; 
+  loggedInUser!: string;
+  //variable
+  permitirRegistro!: boolean;
 
   constructor(
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private configuracionServicio: ConfiguracionServicio
   ) { }
 
   ngOnInit() {
@@ -29,6 +33,15 @@ export class CabeceroComponent implements OnInit {
         this.isLoggedIn = false;
       }
     });
+
+    this.configuracionServicio.getConfiguracion()
+    .subscribe( configuracion => {
+      //cargamos el valor que tenemos en la bbdd en la propiedad permitir registro
+      // por medio de configuracion.permitirRegistro le asignamos el valor
+      //que tengamos en nuestra bbdd a nuestra variable.
+
+      this.permitirRegistro = configuracion.permitirRegistro;
+    })
   }
 
   logout(){
