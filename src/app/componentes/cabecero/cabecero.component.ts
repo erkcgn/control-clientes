@@ -36,7 +36,7 @@ export class CabeceroComponent implements OnInit {
 
     this.configuracionServicio.getConfiguracion()
     .subscribe( configuracion => {
-      //cargamos el valor que tenemos en la bbdd en la propiedad permitir registro
+      //cargamos el valor que tenemos en la bbdd en la propiedad permitirRegistro
       // por medio de configuracion.permitirRegistro le asignamos el valor
       //que tengamos en nuestra bbdd a nuestra variable.
 
